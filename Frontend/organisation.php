@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -30,7 +31,7 @@
 
                             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapsediv">
                                 <span class="sr-only">Navigation </span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-                            </button> <a class="navbar-brand" href="#">HelpingBox</a>
+                            </button> <a class="navbar-brand" href="index.html">HelpingBox</a>
                         </div>
                         <div class="collapse navbar-collapse" id="collapsediv">
                             <form method="post" action="helfen.php" id="redirect">
@@ -47,17 +48,7 @@
                             </form>
                         </div>
                     </nav>
-                    <div class="jumbotron">
-                        <h2>
-                            <span>Willkommen</span>
-                        </h2>
-
-                        <span style="font-size: 17px;">Über diese Plattform können Hilfsorganisationen (z.B. Flüchtlingsheime) einen Antrag auf benötigte Konsumartikel stellen. Die Spender können sehen, was in der Nähe an Konsumartikeln benötigt werden um eine sogenannte "Helping-Box" mit diesen Artikeln verschicken oder persönlich vorbeibringen zu können</span>
-                        <p>
-                            <a name="helfen" class="btn btn-primary btn-large" style="font-size: 17px; margin-top: 5px;" href="helfen.php">Helfe jetzt</a>
-                        </p>
-                    </div>
-                </div>
+                    
             </div>
         </div>
 

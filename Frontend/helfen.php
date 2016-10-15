@@ -68,10 +68,8 @@ error_reporting(E_ALL);
                 }
 
                 function getDistance($from, $to) {
-
                    
-                    $from = urlencode($from[0]);
-                    echo $from;
+                    $from = urlencode($from[0]. " ".  $from[1]);
                     $to = urlencode($to);
                     $data = file_get_contents("http://maps.googleapis.com/maps/api/distancematrix/json?origins=$from&destinations=$to&language=de-DE");
                     $data = json_decode($data);
@@ -81,7 +79,7 @@ error_reporting(E_ALL);
                         $time += $road->duration->text;
                         $distance += $road->distance->text;
                     }
-                    $str = $distance . " km (ca. " . $time . ")";
+                    $str = $distance . " km (ca. " . $time . " min)";
                     return $str;
                 }
 
