@@ -2,10 +2,10 @@
 
 // Datenbankverbindungen
 
-$dbname = "db242539x2492164";
-$dbpw = "jugendhackt";
-$dburl = "mysql.webhosting61.1blu.de";
-$dbuser = "s242539_2492164";
+$dbname = "";
+$dbpw = "";
+$dburl = "";
+$dbuser = "";
 
 // Aufbau der Verbindung (OnError => Dirty Error Message)
 $con = mysql_connect($dburl, $dbuser, $dbpw) or die(mysql_error());
