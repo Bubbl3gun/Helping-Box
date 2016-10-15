@@ -59,27 +59,30 @@ error_reporting(E_ALL);
             <div class="list-group">
                 <?php
 
+                function geoToAddress($lat, $long) {
+                    $url = "http://maps.googleapis.com/maps/api/geocode/json?latlng=$lat,$long";
+                    $curlData = file_get_contents($url);
+                    $address = json_decode($curlData);
+                    $a = $address->results[0];
+                    return explode(",", $a->formatted_address);
+                }
+
                 function getDistance($from, $to) {
 
-                    $from = "sr nagar,hyderabad";
-                    $to = "kukatpalle,hyderabad";
-                    $from = urlencode($from);
+                   
+                    $from = urlencode($from[0]);
+                    echo $from;
                     $to = urlencode($to);
-                    $data = file_get_contents("http://maps.googleapis.com/maps/api/distancematrix/json?origins=$from&destinations=$to&language=en-EN&sensor=false");
+                    $data = file_get_contents("http://maps.googleapis.com/maps/api/distancematrix/json?origins=$from&destinations=$to&language=de-DE");
                     $data = json_decode($data);
                     $time = 0;
                     $distance = 0;
                     foreach ($data->rows[0]->elements as $road) {
-                        $time += $road->duration->value;
-                        $distance += $road->distance->value;
+                        $time += $road->duration->text;
+                        $distance += $road->distance->text;
                     }
-                    echo "To: " . $data->destination_addresses[0];
-                    echo "<br/>";
-                    echo "From: " . $data->origin_addresses[0];
-                    echo "<br/>";
-                    echo "Time: " . $time . " seconds";
-                    echo "<br/>";
-                    echo "Distance: " . $distance . " meters";
+                    $str = $distance . " km (ca. " . $time . ")";
+                    return $str;
                 }
 
                 $query = "SELECT id, name, adresse FROM organisation";
@@ -87,7 +90,7 @@ error_reporting(E_ALL);
 
                     while ($row = $result->fetch_assoc()) {
                         echo ' <a href="organisation.php?id=' . $row["id"] . '" class="list-group-item">
-                               <h4 class="list-group-item-heading">' . $row["name"] . '<p class="text-right">' . distance(getCoordinates($row["adresse"])[0], getCoordinates($row["adresse"])[1], $_POST["userlat"], $_POST["userlong"]) . ' km entfernt</p></h4>
+                               <h4 class="list-group-item-heading">' . $row["name"] . '<p class="text-right">' . getDistance(geoToAddress($_POST["userlat"], $_POST["userlong"]), $row["adresse"]) . '</p></h4>
                     <p class="list-group-item-text">' . $row["adresse"] . '</p>
                                </a>';
                     }
