@@ -3,8 +3,8 @@ $page = "/index.html";
 if (isset($_POST["userlat"]) && isset($_POST("userlong"))) {
     if(isset($_POST["helfen"])) {
         $page= "/helfen.php";
-    } elseif(isset($_POST["benoetige"])) {
-        $page = "";
+    } elseif(isset($_POST["orga"])) {
+        $page = "/orga.php";
     } else {
          header("Location: /index.html");
     }

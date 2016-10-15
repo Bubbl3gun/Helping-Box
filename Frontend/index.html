@@ -11,39 +11,39 @@
         <title>Helping Box</title>
         <meta name="description" content="Ein interaktiver Wegweiser für die ersten Schritte mit Brackets.">
         <link rel="stylesheet" href="main.css">
+        <script src='index.js' />
     </head>
     <body>
+        <div class="page-header"><h1>Helping-Box<small> Denen helfen, die Hilfe brauchen</small></h1></div>
         <div class="container-fluid">
+
+            <input type='hidden' name='userlat' value=''>
+            <input type='hidden' name='userlong' value=''>
+
             <div class="row">
                 <div class="col-md-12">
                     <nav class="navbar navbar-default" role="navigation">
                         <div class="navbar-header">
-
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                                <span class="sr-only">Navigation </span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-                            </button> <a class="navbar-brand" href="#">HelpingBox</a>
+                            <form method="post" action="backend/redirect.php">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapsediv">
+                                    <span class="sr-only">Navigation </span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                                </button> <a class="navbar-brand" href="#">HelpingBox</a>
                         </div>
 
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <div class="collapse navbar-collapse" id="collapsediv">
+
                             <ul class="nav navbar-nav">
                                 <li>
-                                    <a href="#">Helfer</a>
+                                    <a name="helfen" onclick="form.submit();" href="helfen.php">Helfer</a>
                                 </li>
                                 <li>
-                                    <a href="#">Organisation</a>
+                                    <a name="orga" onclick="form.submit();" href="orga.php">Organisation</a>
                                 </li>
                             </ul>
-                            <form class="navbar-form navbar-left" role="search">
-                                <div class="form-group">
-                                    <input type="text" placeholder="Suche etwas..." class="form-control" />
-                                </div> 
-                                <button type="submit" class="btn btn-default">
-                                    Suchen
-                                </button>
+
                             </form>
 
                         </div>
-
                     </nav>
                     <div class="jumbotron">
                         <h2>
@@ -51,15 +51,15 @@
                         </h2>
 
                         <span style="font-size: 17px;">Über diese Plattform können Hilfsorganisationen (z.B. Flüchtlingsheime) einen Antrag auf benötigte Konsumartikel stellen. Die Spender können sehen, was in der Nähe an Konsumartikeln benötigt werden um eine sogenannte "Helping-Box" mit diesen Artikeln verschicken oder persönlich vorbeibringen zu können</span>
-
                         <p>
-                            <a class="btn btn-primary btn-large" href="#">Helfe jetzt</a>
+                            <a name="helfen" class="btn btn-primary btn-large" style="font-size: 17px; margin-top: 5px;" onclick="form.submit();">Helfe jetzt</a>
                         </p>
                     </div>
                 </div>
             </div>
-        </div>
-    </body>
+        </form>
+    </div>
+</body>
 
 
 
