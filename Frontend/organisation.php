@@ -1,4 +1,23 @@
+<?php
+include '../backend/db.php';
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+$query = "SELECT * FROM organisation WHERE id='" . $_GET["id"] . "'";
+if ($result = $con->query($query)) {
 
+    while ($row = $result->fetch_assoc()) {
+        $ansprechpartner = $row["ansprechpartner"];
+        $telnummer = $row["telefonnummer"];
+        $name = $row["name"];
+        $adresse = $row["adresse"];
+    }
+} else {
+    echo "Diese Organisation kann nicht gefunden werden";
+}
+
+$con->close();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -15,6 +34,7 @@
         <script src="index.js"></script>
     </head>
     <body>
+
         <img src="LOGO.gif"  alt="Slogan" height="150" width="150" class="img-responsive pull-right" >
 
         <div class="page-header"><h1>Helping-Box<small> Denen helfen, die Hilfe brauchen</small></h1></div>
@@ -48,10 +68,69 @@
                             </form>
                         </div>
                     </nav>
-                    
-            </div>
-        </div>
+                    <h2><?php echo $name; ?></h2>
+                    <div class="row"><div class="col-md-6"><div id="map"></div></div><div class="col-md-6"><p>Adresse: <?php echo $adresse; ?> </br>
+                            <a target="_blank" href="https://maps.google.at/?daddr=<?php echo $adresse; ?>&om=1">Route starten</a></p>
+                            <p>Ansprechpartner: <?php echo $ansprechpartner; ?></p>
+                            <p>Telefonnummern: <?php echo $telnummer; ?></p></div></div>
 
+
+                    <h3>Wir brauchen:</h3><br>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Kategorie</th>
+                                <th>Gegenstand</th>
+                                <th>Bemerkung</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Klamotten</td>
+                                <td>Socken</td>
+                                <td>Am besten dicke Socken</td>
+                            </tr>
+                            <tr>
+                                <td>Klamm</td>
+                                <td>Moe</td>
+                                <td>mary@example.com</td>
+                            </tr>
+                            <tr>
+                                <td>Sonstiges</td>
+                                <td>Fahrrad</td>
+                                <td>Ein Damenrad fehlt uns noch um einen Ausflug zu machen.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+            <script>
+                function initMap() {
+                    var uluru = {lat: -53.363, lng: 131.044};
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                        zoom: 12
+                    });
+                    var geocoder = new google.maps.Geocoder();
+                    var address = "<?php echo $adresse ?>";
+                    geocoder.geocode({'address': address}, function (results, status) {
+                        if (status == google.maps.GeocoderStatus.OK) {
+                            map.setCenter(results[0].geometry.location);
+                            var marker = new google.maps.Marker({
+                                map: map,
+                                position: results[0].geometry.location
+                            });
+                        } else {
+                            alert('Geocode was not successful for the following reason: ' + status);
+                        }
+                    });
+                }
+
+
+            </script>
+            <script async defer
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlbG2ho4ssGTw0LNe33lSCJCJ9FScaOaE&callback=initMap">
+            </script>
     </body>
 
 

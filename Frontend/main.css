@@ -58,3 +58,8 @@ img {
         filter: grayscale(0%);
     }
 }
+
+#map {
+    height: 300px;
+    width: 100%;
+}

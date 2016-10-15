@@ -41,9 +41,7 @@ error_reporting(E_ALL);
                                 <input type='hidden' id="userlong" name='userlong'>
                                 <ul class="nav navbar-nav">
                                     <li class="active">
-
                                         <a name="helfen" href="javascript:redirectHelfer();">Helfer</a>
-
                                     </li>
                                     <li>
                                         <a name="orga" href='orga.php' >Organisation</a>
