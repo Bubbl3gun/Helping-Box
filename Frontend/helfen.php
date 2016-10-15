@@ -1,3 +1,9 @@
+<?php
+ include '../backend/db.php';
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+?>
 <!DOCTYPE html>
 <html>
 
@@ -14,12 +20,10 @@
         <script src="index.js"></script>
     </head>
     <body>
-        <img src="LOGO.gif"  alt="Slogan" height="150" width="150" class="img-responsive pull-right" >
-
         <div class="page-header"><h1>Helping-Box<small> Denen helfen, die Hilfe brauchen</small></h1></div>
 
         <div class="container-fluid">
-            <form method="post" action="/backend/redirect.php"  id="redirect">
+            <form method="post" action="/backend/redirect.php" id="redirect">
                 <input type='hidden' name='userlat' value=''>
                 <input type='hidden' name='userlong' value=''>
 
@@ -30,42 +34,50 @@
 
                                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapsediv">
                                     <span class="sr-only">Navigation </span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-                                </button> <a class="navbar-brand" href="#">HelpingBox</a>
+                                </button> <a class="navbar-brand" href="index.html">HelpingBox</a>
                             </div>
 
                             <div class="collapse navbar-collapse" id="collapsediv">
 
                                 <ul class="nav navbar-nav">
-                                    <li>
-                                        <a name="helfen" href="javascript:redirect()" >Helfer</a>
+                                    <li class="active">
+                                        <a name="helfen" href="javascript:redirect()"  >Helfer</a>
                                     </li>
                                     <li>
-                                        <a name="orga" href="javascript:redirect()">Organisation</a>
+                                        <a name="orga" onclick="redirect()" >Organisation</a>
                                     </li>
                                 </ul>                           
 
                             </div>
                         </nav>
-                        <div class="jumbotron">
-                            <h2>
-                                <span>Willkommen</span>
-                            </h2>
-
-                            <span style="font-size: 17px;">Über diese Plattform können Hilfsorganisationen (z.B. Flüchtlingsheime) einen Antrag auf benötigte Konsumartikel stellen. Die Spender können sehen, was in der Nähe an Konsumartikeln benötigt werden um eine sogenannte "Helping-Box" mit diesen Artikeln verschicken oder persönlich vorbeibringen zu können</span>
-                            <p>
-                                <a name="helfen" class="btn btn-primary btn-large" style="font-size: 17px; margin-top: 5px;" href="helfen.php">Helfe jetzt</a>
-                            </p>
-                        </div>
                     </div>
                 </div>
             </form>
+            <h3>Nach Organisationen suchen:</h3></br>
+            <div class="list-group">
+                <?php
+      
+                $query = "SELECT id, name, adresse FROM organisation";
+                if ($result = $con->query($query)) {
+
+                    while ($row = $result->fetch_assoc()) {
+                        echo ' <a href="organisation.php?id=' . $row["id"] . '" class="list-group-item">
+                               <h4 class="list-group-item-heading">' . $row["name"] . '</h4>
+                    <p class="list-group-item-text">' . $row["adresse"] . '</p>
+                               </a>';
+                    }
+                } else {
+                    echo "Im Moment hat sich keine Organisation eingetragen";
+                }
+
+
+                $con->close();
+                ?>
+
+            </div>
+            <?php
+            echo $_POST["userlat"];
+            ?>
         </div>
-
     </body>
-
-
-
-
-
-
 </html>
