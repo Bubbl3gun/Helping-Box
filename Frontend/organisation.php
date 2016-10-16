@@ -91,7 +91,7 @@ $con->close();
                                 <td>Am besten dicke Socken</td>
                             </tr>
                             <tr>
-                                <td>Klamm</td>
+                                <td>Klamotten</td>
                                 <td>Moe</td>
                                 <td>mary@example.com</td>
                             </tr>

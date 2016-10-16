@@ -75,20 +75,20 @@
                             <input type="hidden" id="addoptiontext" for="ex1" col-xs-2 id="gesucht" placeholder="Socken, Shirts, ..."</label>
                         </div>
                         <div class="form-group">
-                            <label><input type="checkbox" id="addoption2" value="">Option 2</label>
-                            <input type="hidden" id="addoptiontext2" for="ex1"  col-xs-2 id="gesucht" placeholder="Test"</label>
+                            <label><input type="checkbox" id="addoption2" value="">Spielzeug</label>
+                            <input type="hidden" id="addoptiontext2" for="ex1"  col-xs-2 id="gesucht" placeholder="Sachen"</label>
                         </div>
                         <div class="form-group">
-                            <label><input type="checkbox" id="addoption3" value="">Option 3</label>
-                            <input type="hidden" id="addoptiontext3" for="ex1" col-xs-2 id="gesucht" placeholder="Test"</label>
+                            <label><input type="checkbox" id="addoption3" value="">Zeitschriften</label>
+                            <input type="hidden" id="addoptiontext3" for="ex1" col-xs-2 id="gesucht" placeholder="Sachen"</label>
                         </div>
                         <div class="form-group">
-                            <label><input type="checkbox" id="addoption4" value="">Option 4 </label>
-                            <input type="hidden" id="addoptiontext4" for="ex1" col-xs-2 id="gesucht" placeholder="Test"</label>
+                            <label><input type="checkbox" id="addoption4" value="">Technik</label>
+                            <input type="hidden" id="addoptiontext4" for="ex1" col-xs-2 id="gesucht" placeholder="Sachen"</label>
                         </div>
                         <div class="form-group">
-                            <label><input type="checkbox" id="addoption5" value="">Option 5</label>
-                            <input type="hidden" id="addoptiontext5" for="ex1" col-xs-2 id="gesucht" placeholder="Test"</label>
+                            <label><input type="checkbox" id="addoption5" value="">Sonstiges</label>
+                            <input type="hidden" id="addoptiontext5" for="ex1" col-xs-2 id="gesucht" placeholder="Sachen"</label>
                         </div>
                         
                         
