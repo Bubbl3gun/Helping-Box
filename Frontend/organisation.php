@@ -92,8 +92,8 @@ $con->close();
                             </tr>
                             <tr>
                                 <td>Klamotten</td>
-                                <td>Moe</td>
-                                <td>mary@example.com</td>
+                                <td>Jacken</td>
+                                <td>Bitte schicken sie uns keine Sommerjacken oder dünnere Jacken, da ja der Winter vor der Tür steht.</td>
                             </tr>
                             <tr>
                                 <td>Sonstiges</td>
