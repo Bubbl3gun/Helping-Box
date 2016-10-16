@@ -20,6 +20,8 @@ error_reporting(E_ALL);
         <script src="index.js"></script>
     </head>
     <body>
+         <img src="LOGO.gif"  alt="Slogan" height="150" width="150" class="img-responsive pull-right" >
+
         <div class="page-header"><h1>Helping-Box<small> Denen helfen, die Hilfe brauchen</small></h1></div>
 
         <div class="container-fluid">
@@ -56,7 +58,7 @@ error_reporting(E_ALL);
             <h3>Nach Organisationen suchen:</h3></br>
             <div class="list-group">
                 <?php
-
+                // 
                 function geoToAddress($lat, $long) {
                     $url = "http://maps.googleapis.com/maps/api/geocode/json?latlng=$lat,$long";
                     $curlData = file_get_contents($url);

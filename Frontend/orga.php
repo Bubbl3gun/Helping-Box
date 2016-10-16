@@ -31,7 +31,7 @@
 
                             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapsediv">
                                 <span class="sr-only">Navigation </span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-                            </button> <a class="navbar-brand" href="#">HelpingBox</a>
+                            </button> <a class="navbar-brand" href="index.html">HelpingBox</a>
                         </div>
                         <div class="collapse navbar-collapse" id="collapsediv">
                             <form method="post" action="helfen.php" id="redirect">
